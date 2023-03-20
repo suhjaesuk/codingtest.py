@@ -1,14 +1,13 @@
-def twoSum(nums, target):
-    nums.sort()
-    l = 0
-    r = len(nums)-1
-    while l<r:
-        if nums[l] + nums[r] > target:
-            r-=1
-        elif nums[l] + nums[r] < target:
-            l+=1
-        elif nums[l] + nums[r] ==target:
+def two_sum(nums, target):
+    memo = {}
+    for v in nums:
+        memo[v] = True
+    for v in nums:
+        needed_number = target - v
+        if v != needed_number and needed_number in memo:
             return True
     return False
 
-print(twoSum(nums=[4,1,9,7,5,3,16], target = 14))
+nums = [4,1,9,7,8,2]
+target =14
+print(two_sum(nums, target))
