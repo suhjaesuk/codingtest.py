@@ -1,15 +1,19 @@
-def isValid(s):
+def isValid(str):
     stack = []
-    for p in s:
-        if p =="(":
-            stack.append(")")
-        elif p =="{":
-            stack.append("}")
-        elif p == "[":
-            stack.append("]")
-        elif not stack or stack.pop() != p:
+    for x in str:
+        if x=='(':
+            stack.append(')')
+        elif x=='[':
+            stack.append(']')
+        elif x=='{':
+            stack.append('}')
+        elif not stack or stack.pop()!=x:
             return False
-    return not stack
 
-s="{(([]))[]}"
-isValid(s)
+    if not stack:
+        return True
+    else:
+        return False
+
+str="{(([]))[]"
+print(isValid(str))
