@@ -14,6 +14,7 @@ def bfs(start_x, start_y):
     queue.append((start_x, start_y))
     visited[start_x][start_y] = True
     answer = 0
+
     while queue:
         start_x, start_y = queue.popleft()
         for i in range(4):

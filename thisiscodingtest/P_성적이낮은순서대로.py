@@ -1,13 +1,11 @@
-def solution(n,students):
-    answer=[]
-    students.sort(key=lambda student: student[1])
+n = int(input())
 
-    for student,_ in  students:
-        answer.append(student)
+array = []
+for i in range(n):
+    a,b = input().split()
+    array.append((a, b))
 
-    return answer
+array.sort(key=lambda student: student[1])
 
-n=2
-students=[('홍길동', 95), ('이순신',77)]
-
-print(solution(n,students))
+for student in array:
+    print(student[0], end = ' ')
