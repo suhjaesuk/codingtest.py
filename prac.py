@@ -1,13 +1,18 @@
-def two_sum(nums, target):
-    memo = {}
-    for v in nums:
-        memo[v] = True
-    for v in nums:
-        needed_number = target - v
-        if v != needed_number and needed_number in memo:
-            return True
-    return False
+n = int(input())
+array = list(map(int, input().split()))
 
-nums = [4,1,9,7,8,2]
-target =14
-print(two_sum(nums, target))
+def solution(array):
+    start = 0
+    end = len(array)-1
+
+    while start <= end:
+        mid = (start + end) // 2
+        if array[mid] == mid:
+            return array[mid]
+        elif array[mid] > mid:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return -1
+
+print(solution(array))
